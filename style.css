@@ -1,0 +1,128 @@
+:root {
+	--color-primary: hsl(304, 33%, 38%);
+	--color-secondary: hsl(104, 100%, 56%);
+
+	--color-primary-lighten: hsl(304, 33%, 54%);
+	--color-primary-darken: hsl(304, 33%, 22%);
+
+	--color-secondary-lighten: hsl(104, 100%, 72%);
+	--color-secondary-darken: hsl(104, 100%, 40%);
+
+	--color-white: hsl(0, 0%, 92%);
+	--color-black: hsl(0, 0%, 16%);
+
+	--color-white-darken: hsl(0, 0%, 84%);
+	--color-black-lighten: hsl(0, 0%, 24%);
+}
+
+* {
+	font-family: "Consolas", monospace;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: var(--color-black);
+	color: var(--color-white);
+}
+
+body.light {
+	background-color: var(--color-white-darken);
+	color: var(--color-black);
+}
+
+#brightness__toggle__button {
+	box-shadow: 0 0 0.5rem #000000aa;
+	width: 32px;
+	border: none;
+	background: none;
+	color: var(--color-white);
+	position: fixed;
+	top: 1rem;
+	right: 1rem;
+	aspect-ratio: 1;
+	border-radius: 50%;
+	opacity: 0.5;
+	transition: opacity 0.25s ease-in-out;
+}
+
+#brightness__toggle__button:hover {
+	opacity: 1;
+}
+
+body.light #brightness__toggle__button {
+	color: var(--color-black);
+}
+
+main {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2rem;
+}
+
+section {
+	max-width: 720px;
+	box-shadow: 0 0.5rem 0.5rem #000000aa;
+	background-color: var(--color-black-lighten);
+	padding: 2rem;
+	display: grid;
+	transition: all 0.5s ease-in-out;
+}
+
+body.light section {
+	background-color: var(--color-white);
+}
+
+section h1 {
+	color: var(--color-secondary);
+	filter: drop-shadow(0 0 1rem var(--color-secondary));
+	transition: all 0.5s ease-in-out;
+}
+
+section:hover h1 {
+	transform: scale(1.05) translate(1rem, 0);
+	color: var(--color-secondary-lighten);
+	filter: drop-shadow(0 0 1rem var(--color-secondary-lighten));
+}
+
+body.light section h1 {
+	color: var(--color-primary);
+	filter: drop-shadow(0 0 1rem var(--color-primary));
+}
+
+body.light section:hover h1 {
+	color: var(--color-primary-darken);
+	filter: drop-shadow(0 0 1rem var(--color-primary-darken));
+}
+
+section p {
+	margin: 0 2rem 1rem;
+}
+
+section button {
+	border: none;
+	background-color: var(--color-primary);
+	box-shadow: 0 0 1rem var(--color-primary);
+	color: var(--color-black);
+	padding: 0.5rem 2rem;
+	justify-self: end;
+	transition: all 0.5s ease-in-out;
+}
+
+section button:hover {
+	transform: scale(1.05);
+	background-color: var(--color-primary-lighten);
+	box-shadow: 0 0 1rem var(--color-primary-lighten);
+}
+
+body.light section button {
+	background-color: var(--color-black-lighten);
+	color: var(--color-secondary);
+	box-shadow: 0 0 1rem var(--color-secondary);
+}
+
+body.light section button:hover {
+	background-color: var(--color-black);
+	color: var(--color-secondary-darken);
+	box-shadow: 0 0 1rem var(--color-secondary-darken);
+}
